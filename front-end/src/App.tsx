@@ -1,11 +1,11 @@
 import { Button, Container } from "react-bootstrap";
+import Title from "react-bootstrap"
+import { Routes } from "./routes";
 
 function App() {
   return (
-    <Container>
-     <p>Turipoços</p>
-     <Button>teste</Button>
-    </Container>
+  <Routes />
+   
   );
 }
 
