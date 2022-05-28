@@ -8,7 +8,7 @@ import {Layout} from "../../components/Layout"
 
 export function HomeView () {
     return (
-        <Layout startTransparent>
+        <Layout startTransparent withoutMargin>
             <Banner className="vh-100">
                 <Container className="h-100 d-flex flex-column justify-content-center align-items-lg-start">
                     <Title className="text-white text-center text-lg-start mt-auto mt-lg-0">Vamos te apresentar esta linda cidade de um jeito inesquecivel </Title>

@@ -15,7 +15,7 @@ export const Layout: React.FC<Props> = ({ children, startTransparent, withoutMar
       <MainStyled startTransparent={startTransparent}>
         {children}
       </MainStyled>
-      <Footer  />
+      <Footer withoutMargin={withoutMargin}  />
      
     </>
   )

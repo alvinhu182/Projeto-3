@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../../assets/img/Logo-turipocos.png"
 
-export function Footer (){
+type Props = {
+    withoutMargin?: boolean
+}
+export function Footer ({withoutMargin = false }: Props) {
     return (
-        <FooterStyled className="text-center">
+        <FooterStyled className={`text-center ${withoutMargin ? '': 'mt-5'}`}>
             <Container className="d-lg-flex align-items-center">
                 <Link to='/' className="me-lg-auto">
                 <img src={Logo} alt="Turipoços" width={60} height={60} />
