@@ -8,16 +8,17 @@ import {Layout} from "../../components/Layout"
 
 export function HomeView () {
     return (
-        
-        <Banner className="vh-100">
-            <Container className="h-100 d-flex flex-column justify-content-center align-items-lg-start">
-                <Title className="text-white text-center text-lg-start mt-auto mt-lg-0">Vamos te apresentar esta linda cidade de um jeito inesquecivel </Title>
-                <CustomButton loading size="lg" className="mt-auto mt-lg-3 mb-2"to="/cadastro">Criar conta</CustomButton>
-             
-                  <CustomButton variant="success" size="lg" className="mb-4" to='/login' >Fazer login</CustomButton>
-               
-             </Container>
-       </Banner>
+        <Layout startTransparent>
+            <Banner className="vh-100">
+                <Container className="h-100 d-flex flex-column justify-content-center align-items-lg-start">
+                    <Title className="text-white text-center text-lg-start mt-auto mt-lg-0">Vamos te apresentar esta linda cidade de um jeito inesquecivel </Title>
+                    <CustomButton loading size="lg" className="mt-auto mt-lg-3 mb-2"to="/cadastro">Criar conta</CustomButton>
+                
+                    <CustomButton variant="success" size="lg" className="mb-4" to='/login' >Fazer login</CustomButton>
+                
+                </Container>
+        </Banner>
+       </Layout>
     )
 }
 

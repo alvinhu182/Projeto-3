@@ -6,15 +6,19 @@ import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Logo from "../../assets/img/logo-turipocos.png"
+import Logo from "../../assets/img/Logo-turipocos.png"
 import { CustomButton } from "../CustomButton";
 
-export function Header () {
+type Props = {
+    startTransparent?: boolean
+}
+
+export function Header ({ startTransparent = false}: Props) {
     const [isTransparent, setIsTransparent] = useState(true)
     useEffect(()=> {
         const scrollChange = () => {
             const isLowScroll= window.scrollY < 100
-            if (isLowScroll != isTransparent) {
+            if (startTransparent && isLowScroll != isTransparent) {
              setIsTransparent(isLowScroll)
             }  
          }
@@ -22,12 +26,12 @@ export function Header () {
         return () => {
             window.removeEventListener("scroll" , scrollChange)
         }
-    }, [isTransparent])
+    }, [isTransparent, startTransparent])
     return (
-      <Navbar fixed='top' expand="lg" bg={isTransparent ? undefined : "white"}>
+      <NavbarStyled fixed='top' expand="lg" bg={isTransparent ? undefined : "white"}>
           <Container>
               <Navbar.Brand to ='/' as={Link}>
-                 <img src={isTransparent ? Logo : Logo} alt="Turipoços" width={194} height={51}/>
+                 <img src={isTransparent ? Logo : Logo} alt="Turipoços" width={60} height={60}/>
               </Navbar.Brand>
                   <NavbarToggleStyled>
                     <FontAwesomeIcon icon={faBars} className={isTransparent ? "text-white" : "text-dark"} size="lg" />
@@ -41,7 +45,7 @@ export function Header () {
                   </NavbarCollapseStyled>
                   
           </Container>
-      </Navbar>
+      </NavbarStyled>
     )
 }
 const NavbarToggleStyled = styled(Navbar.Toggle)`
@@ -60,4 +64,17 @@ const NavLinkStyled =styled(Nav.Link)`
 @media (min-width: 992px){
     color: #fff !important;
 }
+`
+const ImageStyled = styled.img`
+@media (min-width: 992px){
+    width: 266px;
+    height: auto;
+}
+`
+const NavbarStyled = styled(Navbar)`
+transition: all .3s linear;
+${props => props.bg === 'white' && `
+box-shadow: 0px 2px 4px rgba(0,0,0,0.25)
+`}
+
 `
