@@ -6,6 +6,10 @@ import { FormField } from "../../components/FormField";
 import { Layout } from "../../components/Layout";
 import { PageTitle } from "../../components/PageTitle";
 import * as yup from 'yup'
+import { createUser } from "../../services/createUser";
+import { FirebaseError } from "firebase/app";
+import {AuthErrorCodes} from "firebase/auth"
+import { toast } from "react-toastify";
 
 type FormValues = {
     name: string
@@ -31,9 +35,18 @@ export function RegisterView () {
             phone: yup.string().required('Preencha o telefone.'),
             password: yup.string().required('Preencha a senha').min(6, 'informe pelo menos 6 caractéres').max(16,'informe no máximo 16 caractéres.'),
             agree: yup.boolean().equals([true], 'é preciso aceitar os termos de uso.')
-        })
-           onSubmit: (values) => {
-            
+        }),
+           onSubmit: async (values, {setFieldError}) => {
+            try {
+             const user = await createUser(values)
+            } catch(error) {
+                if (error instanceof FirebaseError && error.code === AuthErrorCodes.EMAIL_EXISTS) {
+                    setFieldError ('email', 'Este e-mail já está em uso.')
+                    return
+                }
+                toast.error('Ocorreu um erro ao cadastrar. Tente novamente.')
+            }
+           
         }
     })
     const getFieldProps = (fieldName: keyof FormValues) => {
