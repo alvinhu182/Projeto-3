@@ -54,6 +54,7 @@ export function RegisterView () {
            
         }
     })
+    
     const getFieldProps = (fieldName: keyof FormValues) => {
         return {
             ...formik.getFieldProps(fieldName),
@@ -110,7 +111,11 @@ export function RegisterView () {
                     )}
                 </Form.Group>
                 <div className="d-grid mb-4">
-                    <CustomButton type="submit">
+                    <CustomButton
+                     type="submit"
+                     loading={formik.isValidating || formik.isSubmitting}
+                     disabled={formik.isValidating || formik.isSubmitting}
+                     >
                         Criar conta 
                     </CustomButton>
                 </div>
@@ -123,5 +128,6 @@ export function RegisterView () {
                 
             </Container>
         </Layout>
+        
     )
 }
