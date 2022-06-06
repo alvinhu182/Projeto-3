@@ -1,20 +1,31 @@
 import { Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import bgMobile from "../../assets/img/bg-turipocos.jpg";
 import bgDesktop from "../../assets/img/bg-turipocos.jpg";
 import { CustomButton } from "../../components/CustomButton";
 import {Layout} from "../../components/Layout"
+import { selectIsUserLoggedIn } from "../../store/slice/userSlice";
 
 
 export function HomeView () {
+   const isUserLoggedIn =  useSelector(selectIsUserLoggedIn)
     return (
         <Layout startTransparent withoutMargin>
             <Banner className="vh-100">
                 <Container className="h-100 d-flex flex-column justify-content-center align-items-lg-start">
                     <Title className="text-white text-center text-lg-start mt-auto mt-lg-0">Vamos te apresentar esta linda cidade de um jeito inesquecivel </Title>
-                    <CustomButton loading size="lg" className="mt-auto mt-lg-3 mb-2"to="/cadastro">Criar conta</CustomButton>
+                    {isUserLoggedIn ? (
+                        <CustomButton  size="lg" className="mt-auto mt-lg-3 mb-2"to="/nova-corrida">Nova Corrida</CustomButton>
+                   
+                   ) : (
+                       <>
+                    <CustomButton  size="lg" className="mt-auto mt-lg-3 mb-2"to="/cadastro">Criar conta</CustomButton>
                 
                     <CustomButton variant="success" size="lg" className="mb-4" to='/login' >Fazer login</CustomButton>
+                     </>
+                    )}
+                    
                 
                 </Container>
         </Banner>

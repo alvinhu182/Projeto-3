@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../../assets/img/Logo-turipocos.png"
+import { selectIsUserLoggedIn } from "../../store/slice/userSlice";
 import { CustomButton } from "../CustomButton";
 
 type Props = {
@@ -27,6 +29,10 @@ export function Header ({ startTransparent = false}: Props) {
             window.removeEventListener("scroll" , scrollChange)
         }
     }, [isTransparent, startTransparent])
+    const isUserLoggedIn = useSelector(selectIsUserLoggedIn)
+    const handleLoggout = () => {
+
+    }
     return (
       <NavbarStyled fixed='top' expand="lg" bg={isTransparent ? undefined : "white"}>
           <Container>
@@ -39,8 +45,19 @@ export function Header ({ startTransparent = false}: Props) {
                   <NavbarCollapseStyled id="basic-navbar-nav" className="justify-content-center text-center">
                       <Nav className="ms-auto">
                           <NavLinkStyled forwardedAs={Link} to="/">Inicio</NavLinkStyled>
-                          <CustomButton className="mt-2 mt-lg-0 ms-lg-4" to='/cadastro'>Criar conta</CustomButton>
-                          <CustomButton className="mt-2 mt-lg-0 ms-lg-4" to='/login'>Fazer login</CustomButton>
+                          {isUserLoggedIn ? (
+                              <> 
+                              <CustomButton className="mt-2 mt-lg-0 ms-lg-4" to='/nova-corrida'>Nova corrida</CustomButton>
+                              <CustomButton className="mt-2 mt-lg-0 ms-lg-4" onClick={handleLoggout}>Sair</CustomButton>
+                              </>
+                              
+                          ) : (
+                              <>
+                                 <CustomButton className="mt-2 mt-lg-0 ms-lg-4" to='/cadastro'>Criar conta</CustomButton>
+                                 <CustomButton className="mt-2 mt-lg-0 ms-lg-4" to='/login'>Fazer login</CustomButton>
+                              </>
+                          )}
+                         
                       </Nav>
                   </NavbarCollapseStyled>
                   
