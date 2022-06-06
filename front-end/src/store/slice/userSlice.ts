@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { User } from "../../entities/User";
 import { RootState } from "../store";
 
+
 type UserState = {
     loadingUser: boolean
     user: User | null
@@ -35,3 +36,4 @@ export default slice.reducer
 
 export const selectIsUserLoggedIn = (state: RootState) => !! state.userData.user
 
+export const selectIsLoadingUser = (state: RootState) => state.userData.loadingUser

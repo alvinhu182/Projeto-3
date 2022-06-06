@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../../assets/img/Logo-turipocos.png"
-import { selectIsUserLoggedIn } from "../../store/slice/userSlice";
+import { logoutUser } from "../../services/logoutUser";
+import { deleteUser, selectIsUserLoggedIn } from "../../store/slice/userSlice";
 import { CustomButton } from "../CustomButton";
 
 type Props = {
@@ -30,8 +31,12 @@ export function Header ({ startTransparent = false}: Props) {
         }
     }, [isTransparent, startTransparent])
     const isUserLoggedIn = useSelector(selectIsUserLoggedIn)
-    const handleLoggout = () => {
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const handleLoggout =  async() => {
+    await logoutUser()
+    dispatch(deleteUser())
+    navigate('/login')
     }
     return (
       <NavbarStyled fixed='top' expand="lg" bg={isTransparent ? undefined : "white"}>
