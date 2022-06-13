@@ -8,7 +8,9 @@ export const getUser = async (userId: string): Promise <User> => {
         throw new Error('User not found.')
     }
     const { name, email, phone } =  userSnapshot.data()
+    console.log(userSnapshot)
     return {
+
         id: userId,
         name,
         email,

@@ -7,15 +7,15 @@ type Props ={
     children: JSX.Element
 }
 
-export function PublicOnlyRoute ({ children}: Props){
+export function PrivateRoute ({ children}: Props){
   const isUserLoggedIn = useSelector(selectIsUserLoggedIn)
   const isLoadingUser = useSelector(selectIsLoadingUser)
 
   if (isLoadingUser){
     return <Loading />
   }
-  if (isUserLoggedIn) {
-      return <Navigate to ='nova-corrida' />
+  if (!isUserLoggedIn) {
+      return <Navigate to ='/login' />
   }
   
     return children
