@@ -4,6 +4,7 @@ import { AutocompleteField } from "../../components/AutocompleteField";
 import { CustomButton } from "../../components/CustomButton";
 import { FormField } from "../../components/FormField";
 import { Address } from "../../entities/Address";
+import * as yup from 'yup';
 
 type FormValues = {
     startAddress: Address | null
@@ -18,6 +19,14 @@ type FormValues = {
              finalAddress:null,
              comments:''
          },
+         validationSchema: yup.object().shape({
+             startAddress: yup.object()
+             .typeError('Selecione um endereço na lista.'),
+             finalAddress: yup.object()
+             .typeError('Selecione um endereço na lista.'),
+             comments: yup.string()
+             .required('informe as instruções.')
+         }), 
          onSubmit: async (values) => {
 
          }
