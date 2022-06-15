@@ -15,7 +15,7 @@ export function PublicOnlyRoute ({ children}: Props){
     return <Loading />
   }
   if (isUserLoggedIn) {
-      return <Navigate to ='nova-corrida' />
+      return <Navigate to ='/nova-corrida' />
   }
   
     return children
