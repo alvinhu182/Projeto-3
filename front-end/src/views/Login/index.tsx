@@ -20,7 +20,7 @@ type FormValues = {
 
 export function LoginView () {
     const dispatch = useDispatch()
-    const navigate = useNavigate
+    const navigate = useNavigate()
     
     const formik = useFormik({
         initialValues: {
