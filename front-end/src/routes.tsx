@@ -3,6 +3,7 @@ import { PrivateRoute } from "./components/PrivateRoute"
 import { PublicOnlyRoute } from "./components/PublicOnlyRoute"
 import { HomeView } from "./views/home"
 import { LoginView } from "./views/Login"
+import { NewRunSuccessView } from "./views/NewRunSuccess"
 import { NewRunView } from "./views/NewRun"
 import { NotFoundView } from "./views/NotFound"
 import { RegisterView } from "./views/Register"
@@ -32,6 +33,14 @@ export function Routes () {
         element={
           <PrivateRoute>
             <NewRunView />
+            </PrivateRoute>
+        }
+      />
+         <Route
+        path='/nova-corrida/sucesso'
+        element={
+          <PrivateRoute>
+            <NewRunSuccessView />
             </PrivateRoute>
         }
       />

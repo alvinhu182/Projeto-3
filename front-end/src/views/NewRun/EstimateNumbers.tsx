@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import styled from "styled-components"
-import { selectCurrentEstimate } from "../../store/slices/estimateSlice"
+import { selectCurrentEstimate } from "../../store/slice/estimateSlice"
 
 export function EstimateNumbers () {
   const currentEstimate = useSelector(selectCurrentEstimate)
