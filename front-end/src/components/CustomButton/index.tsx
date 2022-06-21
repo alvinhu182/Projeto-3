@@ -39,19 +39,19 @@ ${props => props.size ==='lg' && `
     font-size: 1.125rem;
 `}
 ${props => (props.variant === 'primary' || !props.variant) && `
-background-color: #069016;
-border-color:#069016;
+background-color: #096ae1;
+border-color:#096ae1;
 &:hover {
-    background-color: #02ff20;
-    border-color: #02ff20;
+    background-color: #0c76f9;
+    border-color: #0c76f9;
 }
 `}
 ${props => props.variant === 'outline-primary' && `
-color: #069016;
-border-color:#069016 ;
+color: #096ae1;
+border-color:#096ae1 ;
 &:hover {
-    background-color: #02ff20;
-    border-color: #02ff20;
+    background-color: #0c76f9;
+    border-color: #0c76f9;
 }
 `}
 `
