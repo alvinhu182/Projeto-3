@@ -22,7 +22,7 @@ export function HomeView () {
                        <>
                     <CustomButton  size="lg" className="mt-auto mt-lg-3 mb-2"to="/cadastro">Criar conta</CustomButton>
                 
-                    <CustomButton variant="success" size="lg" className="mb-4" to='/login' >Fazer login</CustomButton>
+                    <CustomButton variant="primary" size="lg" className="mb-4" to='/login' >Fazer login</CustomButton>
                      </>
                     )}
                     
