@@ -53,7 +53,9 @@ export function Header ({ startTransparent = false}: Props) {
                           {isUserLoggedIn ? (
                               <> 
                               <CustomButton className="mt-2 mt-lg-0 ms-lg-4" to='/nova-corrida'>Nova corrida</CustomButton>
+                              <CustomButton className="mt-2 mt-lg-0 ms-lg-4" to='/Tour'>Endereços</CustomButton>
                               <CustomButton className="mt-2 mt-lg-0 ms-lg-4" onClick={handleLoggout}>Sair</CustomButton>
+                              
                               </>
                               
                           ) : (

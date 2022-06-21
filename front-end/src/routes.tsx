@@ -7,6 +7,7 @@ import { NewRunSuccessView } from "./views/NewRunSuccess"
 import { NewRunView } from "./views/NewRun"
 import { NotFoundView } from "./views/NotFound"
 import { RegisterView } from "./views/Register"
+import { TourView } from "./views/Tour"
 
 export function Routes () {
   return (
@@ -44,6 +45,17 @@ export function Routes () {
             </PrivateRoute>
         }
       />
+            <Route
+        path='/Tour'
+        element={
+          <PrivateRoute>
+            <TourView />
+            </PrivateRoute>
+        }
+      />
+
+
+
       <Route path='*' element={<NotFoundView />} />
     </RDRoutes>
   )
