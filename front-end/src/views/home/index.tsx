@@ -14,7 +14,7 @@ export function HomeView () {
         <Layout startTransparent withoutMargin>
             <Banner className="vh-100">
                 <Container className="h-100 d-flex flex-column justify-content-center align-items-lg-start">
-                    <Title className="text-white text-center text-lg-start mt-auto mt-lg-0">Vamos te apresentar esta linda cidade de um jeito inesquecível  </Title>
+                    <Title className="text-white text-center text-lg-start mt-auto mt-lg-0">Vamos te apresentar esta linda cidade de um jeito inesquecível </Title>
                     {isUserLoggedIn ? (
                         <CustomButton  size="lg" className="mt-auto mt-lg-3 mb-2"to="/nova-corrida">Nova Corrida</CustomButton>
                    
@@ -22,7 +22,7 @@ export function HomeView () {
                        <>
                     <CustomButton  size="lg" className="mt-auto mt-lg-3 mb-2"to="/cadastro">Criar conta</CustomButton>
                 
-                    <CustomButton variant="primary" size="lg" className="mb-4" to='/login' >Fazer login</CustomButton>
+                    <CustomButton variant="success" size="lg" className="mb-4" to='/login' >Fazer login</CustomButton>
                      </>
                     )}
                     
