@@ -1,12 +1,13 @@
 import React from "react";
-import { HomeView } from "./Views/Home";
 import { NavigationContainer } from '@react-navigation/native';
+import { Routes } from "./routes";
 
 export default function App ( ){
-   return 
+   return (
    <NavigationContainer>
-       <HomeView/>
+       <Routes/>
    </NavigationContainer>
-   ;
+   
+   )
 }
 
