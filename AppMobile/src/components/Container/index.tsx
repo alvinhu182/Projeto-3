@@ -8,7 +8,7 @@ type Props = {
 };
 
 export function Container ({children, padding = false, center = false}: Props) {
-    return <View style={[, padding ? styles.padding : {}, center ? styles.center : {}}>{children}</View>
+    return <View style={[, padding ? styles.padding : {}, center ? styles.center : {},]}>{children}</View>
 }
 
 const styles = StyleSheet.create({
