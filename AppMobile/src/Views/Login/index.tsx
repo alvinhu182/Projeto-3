@@ -4,8 +4,15 @@ import { FormField } from "../../components/FormField";
 import { useFormik } from "formik"
 import { CustomButton } from "../../components/CustomButton";
 import * as yup from 'yup';
+import { loginUser } from "../../services/loginUser";
+import Toast from 'react-native-toast-message';
+import { isNativeFirebaseAuthError } from "../../utils/isNativeFirebaseAuthError";
+import { RootStackParamList } from "../../routes";
+import {NativeStackScreenProps} from "@react-navigation/native-stack"
 
-export function LoginView() {
+type Props = NativeStackScreenProps<RootStackParamList, 'Login'>
+
+export function LoginView({navigation}: Props) {
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -22,6 +29,21 @@ export function LoginView() {
             
         }) ,
         onSubmit: async values => {
+            try {
+                const user = await loginUser(values);
+                navigation.navigate('Orders');
+            }  catch (error) {
+                const errorMsg =
+                isNativeFirebaseAuthError(error) && (
+                 error.code === 'auth/user-not-foun d' ||
+                  error.code === 'auth-wrong-password' )
+                ? 'Login ou senha inválidos.'
+                : 'Falha ao fazer login. Tente novamente.'
+                Toast.show({
+                    type: 'error',
+                    text1: errorMsg,
+                })
+            }
 
         },
     })

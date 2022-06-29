@@ -2,10 +2,12 @@ import React from 'react'
 import { createNativeStackNavigator} from '@react-navigation/native-stack'
 import { HomeView } from './Views/Home'
 import { LoginView } from './Views/Login'
+import { OrdersView } from './Views/Orders';
 
 export type RootStackParamList = {
-    Home: undefined,
-    Login: undefined,
+    Home: undefined;
+    Login: undefined;
+    Orders: undefined;
 
 };
 
@@ -33,6 +35,13 @@ export function Routes () {
             <Stack.Screen name='Login' component={LoginView} options={{
                 title: 'Entrar no sistema',
             }} 
+            />
+            <Stack.Screen
+            name="Order"
+            component={OrdersView}
+            options={{
+                title: 'Pedidos',
+            }}
             />
         </Stack.Navigator>
     )
