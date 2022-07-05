@@ -6,12 +6,12 @@ import {getOrders} from '../../services/getOrders';
 import {RootState} from '../store';
 
 export const loadOrders = createAsyncThunk(
-  'orders/loadOrders',
-  async (userId: string) => {
-    const orders = await getOrders(userId);
-    return orders;
-  },
-);
+    'orders/loadOrders',
+    async (userId: string) => {
+      const orders = await getOrders(userId);
+      return orders;
+    },
+  );
 
 type OrdersState = {
   orders: Order[];

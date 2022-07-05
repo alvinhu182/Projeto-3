@@ -1,5 +1,4 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import {useNavigation} from '@react-navigation/native'
 import React from "react";
 import { Image, ImageBackground, ImageProps, SafeAreaView, StyleSheet, Text } from "react-native";
 import bg from '../../assets/img/bg-turipocos.jpg';

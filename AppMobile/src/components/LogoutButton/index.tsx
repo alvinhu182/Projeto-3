@@ -1,8 +1,9 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import {logoutUser} from '../../services/logoutUser';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+
 import {faRightFromBracket} from '@fortawesome/free-solid-svg-icons/faRightFromBracket';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 export function LogoutButton() {
   const handleLogout = async () => {

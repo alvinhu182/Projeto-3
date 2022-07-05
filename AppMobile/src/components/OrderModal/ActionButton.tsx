@@ -1,9 +1,10 @@
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons/faChevronRight';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+
 import React from 'react';
 import {CustomText} from '../CustomText';
 import styled from 'styled-components/native';
 import {TouchableOpacity, TouchableOpacityProps} from 'react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 export function ActionButton({children, ...otherProps}: TouchableOpacityProps) {
   return (
@@ -20,7 +21,7 @@ const ButtonStyled = styled(TouchableOpacity)`
   border-bottom-color: #e1e1e1;
   border-bottom-width: 1px;
   padding: 10px;
-  ${props =>
+  ${(props:{disabled: boolean} ) =>
     props.disabled &&
     `
     opacity: 0.4;

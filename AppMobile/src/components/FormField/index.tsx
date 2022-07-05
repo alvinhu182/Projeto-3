@@ -46,13 +46,13 @@ export function FormField({label,
 
     },
     invalidField: {
-        borderColor:'#dc3545',
+        borderColor:'#b91b2a',
     },
     isValidField: {
         borderColor: '#198754'
     },
     errorText: {
-        color: '#dc3545',
+        color: '#b91b2a',
         marginTop: 5,
     },
  })

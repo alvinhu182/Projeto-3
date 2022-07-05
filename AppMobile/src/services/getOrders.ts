@@ -3,13 +3,16 @@ import firestore, {
   } from '@react-native-firebase/firestore';
   import {Order} from '../entities/Order';
   
-  export const getOrders = async ( ) => {
-    const [openOrders, partnerOrders] = await Promise.all([
-      findOpenOrders(),
-      findPartnerOrders(userId),
-    ]);
-    return [...openOrders, ...partnerOrders];
-  };
+
+export const getOrders = async (userId: string) => {
+  const [openOrders, partnerOrders] = await Promise.all([
+    findOpenOrders(),
+    findPartnerOrders(userId),
+  ]);
+  return [...openOrders, ...partnerOrders];
+};
+
+
   
   const findOpenOrders = async () => {
     const ordersDocs = await firestore()

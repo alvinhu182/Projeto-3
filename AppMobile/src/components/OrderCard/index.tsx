@@ -1,10 +1,11 @@
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons/faChevronRight';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+
 import React, {useState} from 'react';
 import {Order} from '../../entities/Order';
 import styled from 'styled-components/native';
 import {OrderDetails} from '../OrderDetails';
 import {OrderModal} from '../OrderModal';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 type Props = {
   order: Order;

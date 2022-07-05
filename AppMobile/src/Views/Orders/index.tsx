@@ -4,7 +4,7 @@ import {faClock as farClock} from '@fortawesome/free-regular-svg-icons/faClock';
 import {faClock as fasClock} from '@fortawesome/free-solid-svg-icons/faClock';
 import {faCircleCheck as farCircleCheck} from '@fortawesome/free-regular-svg-icons/faCircleCheck';
 import {faCircleCheck as fasCircleCheck} from '@fortawesome/free-solid-svg-icons/faCircleCheck';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React, {useEffect} from 'react';
 import {AcceptedOrdersView} from '../AcceptedOrders';
@@ -14,6 +14,7 @@ import {useSelector} from 'react-redux';
 import {selectUser} from '../../store/slice/userSlice';
 import {loadOrders, selectAcceptedOrders} from '../../store/slice/orderSlice';
 import {useAppDispatch} from '../../store/store';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 const Tab = createBottomTabNavigator();
 
@@ -46,7 +47,7 @@ export function OrdersView() {
           }
           return <FontAwesomeIcon icon={icon} color={color} size={size} />;
         },
-        tabBarActiveTintColor: '#1117A3',
+        tabBarActiveTintColor: '#0ad70e',
         tabBarInactiveTintColor: '#333333',
         tabBarInactiveBackgroundColor: '#EEEEEE',
         tabBarActiveBackgroundColor: '#EEEEEE',

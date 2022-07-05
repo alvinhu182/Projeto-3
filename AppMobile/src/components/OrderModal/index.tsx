@@ -73,12 +73,12 @@ export function OrderModal({order, visible, onRequestClose}: Props) {
                 <ActionButton
                   disabled={loading}
                   onPress={() => openMap(order.startAddress)}>
-                  Traçar rota para retirada
+                  Traçar rota para pegar o passageiro
                 </ActionButton>
                 <ActionButton
                   disabled={loading}
                   onPress={() => openMap(order.finalAddress)}>
-                  Traçar rota para entrega
+                  Traçar rota para entregar o passageiro
                 </ActionButton>
                 <ActionButton
                   disabled={loading}
